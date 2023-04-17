@@ -9,7 +9,6 @@ import '../types/types.dart';
 
 void main() {
   final calculator = MatricesCalculator();
-  final jsonEncoder = JsonEncoder.withIndent(' ' * 4);
 
   final handler = webSocketHandler(
     (webSocket) {
@@ -29,7 +28,7 @@ void main() {
             ],
           );
           Matrix result = await receivePort.first;
-          webSocket.sink.add(jsonEncoder.convert({'result': result}));
+          webSocket.sink.add(json.encode({'result': result}));
           receivePort.close();
           isolate.kill();
         },
