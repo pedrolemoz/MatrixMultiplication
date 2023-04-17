@@ -1,2 +1,2 @@
-typedef MatrixRow = List<int>;
+typedef MatrixRow = List<num>;
 typedef Matrix = List<MatrixRow>;
