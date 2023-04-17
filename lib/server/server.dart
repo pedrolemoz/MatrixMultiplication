@@ -18,7 +18,7 @@ void main() {
           final receivePort = ReceivePort();
           final input = json.decode(message);
           final firstMatrix = input['firstMatrix'];
-          final secondMatrix = input['firstMatrix'];
+          final secondMatrix = input['secondMatrix'];
           final isolate = await Isolate.spawn(
             performMultiplication,
             [
@@ -41,7 +41,7 @@ void main() {
       print('Serving at ws://${server.address.host}:${server.port}'));
 }
 
-void performMultiplication(arguments) {
+void performMultiplication(List<dynamic> arguments) {
   MatricesCalculator calculator = arguments.first;
   final firstMatrix = arguments[1];
   final secondMatrix = arguments[2];
